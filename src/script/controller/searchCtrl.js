@@ -8,7 +8,7 @@ angular.module('app').controller('searchCtrl', ['$http', '$scope', "$timeout",'l
     	console.log(key)
         searchHandel(key);
     };
-    
+   
     $scope.keyUp=function(event,key){
     
     	 var keycode = event.keyCode;
