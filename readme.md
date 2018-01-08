@@ -1,3 +1,16 @@
+
+git clone
+
+进入到项目根目录  执行
+bower install   
+
+npm install
+
+gulp server
+
+
+
+
 1、angular+gulp+less+bower
 
 2、angular路由部分用：ui-router
