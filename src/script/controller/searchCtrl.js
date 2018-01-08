@@ -5,23 +5,29 @@ angular.module('app').controller('searchCtrl', ['$http', '$scope', "$timeout",'l
     $scope.historyState=false;
     $scope.search_text="";
     $scope.doSearch=function(key){
-        if($scope.search_text!==undefined||key){
-            $scope.historyState=true;
-            if(key){
-                $scope.historyArr.push(key);
-                $state.go('searchlist', {"keyword": key});
-            }else {
-                $scope.historyArr.push($scope.search_text);
-                $state.go('searchlist', {"keyword": $scope.search_text});
-                $scope.search_text="";
-            }
-        }else {
-            $scope.historyState=false;
-            return false;
-        }
-    }
+    	console.log(key)
+        searchHandel(key);
+    };
+    
+    $scope.keyUp=function(event,key){
+    
+    	 var keycode = event.keyCode;
+    	 if(keycode!==13){
+    	 	return ;
+    	 }
+    	 searchHandel(key); 	
+    };
     $scope.clearHistory=function(){
         $scope.historyArr=[];
-
+    };
+    function searchHandel(key){
+    	if(key&&key.trim()){
+    		 $scope.historyArr.push(key);
+    		 $scope.search_text="";
+             $state.go('searchlist', {"keyword": key});
+    	}else{
+    		$scope.search_text="";
+    		return false;
+    	}
     }
 }]);

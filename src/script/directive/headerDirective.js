@@ -5,7 +5,9 @@ app.directive("headerBar", function () {
             producerName: "=",   // amount 引用传递（双向绑定）
             backUrl:'=',
             titleName:'=',
-            save: "="           // 保存操作
+            save: "=" ,
+            doSearch: "=" ,// 保存操作
+            keyUp:"="
         },
         template: function (el, attr) {
             var temp = '';
@@ -51,8 +53,8 @@ app.directive("headerBar", function () {
                 temp = "<header>" +
                     '<h3 class="search">' +
                     '<a href="javascript:void(0)" ui-sref="main" class="return"></a>' +
-                    ' <input  name=""  value="" placeholder="请输入商品名称" ng-model="search_text" />' +
-                    '<a href=" " ui-sref="search" class="search-btn" ng-click="doSearch()"></a>'+
+                    ' <input  name=""  value="" placeholder="请输入商品名称" ng-keyup="keyUp($event,search_text)" ng-model="search_text" />' +
+                    '<a href=" " ui-sref="search" class="search-btn" ng-click="doSearch(search_text)"></a>'+
                     '</h3>' +
                     '</header>'
             }
