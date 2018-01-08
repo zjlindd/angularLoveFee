@@ -1,0 +1,13 @@
+<header-bar order ></header-bar>
+<div class="myorder_page">
+    <div class="order_state">
+        <ul class="order_list">
+            <li ng-repeat="(i,obj) in orderArr"  ng-class="{order_active:i==index}" ng-click="toggleClass($index)" >{{obj}}</li>
+        </ul>
+    </div>
+    <div class="order_content">
+        <div class='notice_icon'>
+        </div>
+        <p class="notice">还没有订单(⊙o⊙)哦</p>
+    </div>
+</div>

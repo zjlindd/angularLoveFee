@@ -1,0 +1,27 @@
+<!--收货地址-->
+<header-bar address></header-bar>
+
+<div class="shipp_address_page">
+    <div class="location" ng-click="getLocation()">
+       定位到当前地址
+    </div>
+    <div class="area_list">
+        <ul>
+            <li ng-repeat="(i,item) in areaArr" >
+                <span ng-class="{show:i==index}"></span>
+                <div class="info" ng-click="selectArea($index)">
+                    <p><span class="name">{{item.name}}</span><span class="phone">{{item.phone}}</span></p>
+                    <p><span class="area">{{item.area}}</span></p>
+                </div>
+                <div class="edit" ng-click="alterArea(item)">
+                    <span></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="create-area">
+        <span class="new"  ng-click="createArea()"><i class="fa fa-plus" ></i>新增地址</span>
+    </div>
+</div>
+
+<modal-ok modal-title="modalTitle" make-sure="modalOk"  open-modal="openModal"></modal-ok>

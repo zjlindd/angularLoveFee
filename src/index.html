@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>webapp</title>
+    <link rel="stylesheet" type="text/css" href="/css/swiper.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
+    <!--<link rel="stylesheet" href="/css/bootstrap.css">-->
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/index.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<div class="app" ui-view>
+
+</div>
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<!--注意此时目录路径是相对于调试目录-build的-->
+<script src="lib/angular/angular.min.js" charset="utf-8"></script>
+
+<script src="lib/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+
+<!--按需加载 jq 或 swiper-->
+<script src='lib/jquery/dist/jquery.min.js' charset="utf-8"></script>
+
+<script src='lib/swiper/dist/js/swiper.min.js' charset="utf-8"></script>
+
+<!--me-lazyload-->
+<script src='lib/me-lazyload/me-lazyload.js' charset="utf-8"></script>
+
+<!--所有的controller-->
+<script src="js/index.js" charset="utf-8"></script>
+
+</body>
+</html>

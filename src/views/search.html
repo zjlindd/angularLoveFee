@@ -1,0 +1,24 @@
+<!--content部分-->
+<header-bar search></header-bar>
+<div class="search_page">
+        <div class="header">
+            <a  href="#main" ui-sref="main" class="page_back"></a>
+            <input type="text" name=""  value="" placeholder="请输入商品名称" ng-model="search_text" />
+            <span class="search-btn" ng-click="doSearch()">搜索</span>
+        </div>
+        <div class="hot_search">
+            <span class="search">热门搜索</span>
+            <ul>
+                <li ng-repeat="key in searchArr" ng-click="doSearch(key)">{{key}}</li>
+            </ul>
+        </div>
+        <div class="history_wrap" ng-show="historyState">
+            <span class="history">历史记录</span>
+            <ul>
+                <li ng-repeat="key in historyArr" ng-click="doSearch(key)">{{key}}</li>
+            </ul>
+        </div>
+    <div class="clear-history" ng-show="historyState">
+        <span ng-click="clearHistory();historyState=false">清空历史</span>
+    </div>
+</div>

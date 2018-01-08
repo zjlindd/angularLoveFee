@@ -1,0 +1,40 @@
+<!--content部分-->
+<div class="mine_page">
+    <div class="user_info">
+        <div class="info" ng-click="goto()">
+            <p class="user_iphone">18372665512</p>
+            <p class="user_vip">注册会员</p>
+        </div>
+        <div class="collection">
+            <p><span class="clo1">商品收藏</span>|<span class="clo2">店铺收藏</span></p>
+        </div>
+    </div>
+    <div class="wrap_order">
+        <div class="mine_order">
+            <span>我的订单</span><a href="#order" ui-sref="order">查看我的订单</a>
+        </div>
+        <div class="order_state">
+            <ul>
+                <li ng-click="toggleClass($index)" ng-repeat="obj in orderArr">
+                    <a href="" >
+                        <span class="icon"></span>
+                        <span class="txt">{{obj}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="other_server">
+            <ul>
+                <li ng-repeat="obj in other_server">
+                    <span class="icon"></span>
+                    <span class="txt">{{obj}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="exit">
+            <p class="quit"><a href="#login">退出当前账号</a></p>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<footer-bar total-count="totalCount"></footer-bar>

@@ -1,0 +1,87 @@
+<!--首页主要有三部分组成-->
+<header-bar   cart-header ></header-bar>
+<!--content部分-->
+<div class="cart_content">
+    <div class="empty_notice" ng-show="!totalCount">
+       <div class="container">
+               <p class="img"></p>
+               <p class="tips">亲，购物车空空的耶~</p>
+               <p class="link"><a href="#main" ui-sref="main">去逛逛</a></p>
+       </div>
+    </div>
+    <!--购物车里面内容显示-->
+    <div class="cart_info_show" ng-show="totalCount">
+        <div class="link_info">
+            <p class="reciver">收 货 人&nbsp;&nbsp;<span>{{current_area.name}}&nbsp;</span>先生</p>
+            <p class="tel">电&nbsp;&nbsp;&nbsp;&nbsp;话&nbsp;&nbsp;<span class="tel">{{current_area.phone}}</span><a class="alter" ui-sref="address" href="">修改></a></p>
+            <p class="area">收货地址&nbsp;&nbsp;<span class="area">{{current_area.detailArea}}</span></p>
+        </div>
+        <div class="together">
+            <p>闪送超市 <span>凑单专区</span></p>
+            <p>0起送,22:00前满30面运费,22:00后满69免运费</p>
+        </div>
+        <div class="order_time" ng-click="chooseTime()">
+            <p>收货时间<span class="toTime" ng-init="choose_time='30分钟送达'">{{choose_time}}</span><span class="style">可预订></span></p>
+        </div>
+        <div class="receive_note">
+            <p><span>收货备注</span><input type="text" name="text" class="require" placeholder="可输入100字以内特殊要求内容" /> </p>
+        </div>
+        <div class="cart_pro_list">
+            <ul class="list_item">
+                <li ng-repeat="(i,item) in productListArr" ng-show="item.count">
+                    <div class="check">
+                        <span ng-click="check(i,item)">{{isCheck}}</span>
+                        <img ng-src="../images/circle.png" alt="" ng-click="check(i,item)"  ng-show="!item.isChecked">
+                        <img ng-src="../images/sure.png" alt="" ng-click="check(i,item)"    ng-show="item.isChecked">
+                    </div>
+                    <div class="img">
+                        <img ng-src="{{item.img}}" alt="">
+                    </div>
+                    <div class="pro_info">
+                        <p class="name"><span>{{item.name}}</span></p>
+                        <p class="action">
+                        <span class="price">￥{{item.price}}</span>
+                        <span class="add"  ng-click="addCart(item)">+</span>
+                        <span class="count">{{item.count}}</span>
+                        <span class="remove"  ng-click="reduce(item)">-</span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="accounts">
+                <div class="checkAll">
+                    <span ng-click="checkAll()">{{isCheckAll}}</span>
+                    <img ng-src="../images/circle.png" alt="" ng-click="checkAll(i,item)"  ng-show="!isCheckAll">
+                    <img ng-src="../images/sure.png" alt="" ng-click="checkAll(i,item)"    ng-show="isCheckAll">
+                    <i>&nbsp;全选</i>
+                </div>
+               <div class="total">
+                   <span>&nbsp;共:<i class="allMoney">￥{{all_money}}</i></span>
+               </div>
+                <div class="finish">
+                    <span ng-show="isOk" class="ok">选好啦</span>
+                    <span ng-show="!isOk" class="zero">满0元起送</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--time choose-->
+    <div class="choose_time"  ng-show="time_show">
+        <ul>
+            <li><a href="javascript:void(0)">今天</a></li>
+
+            <li ng-repeat="item in todayArr" class="time_item" ng-click="selectTime('今天',item)"><a href="javascript:void(0)">{{item}}</a></li>
+        </ul>
+        <ul>
+            <li><a href="javascript:void(0)">明天</a></li>
+            <li ng-repeat="item in tomorrowArr" class="time_item" ng-click="selectTime('明天',item)"><a href="javascript:void(0)">{{item}}</a></li>
+        </ul>
+        <ul>
+            <li><a href="javascript:void(0)">后天</a></li>
+            <li ng-repeat="item in afterTommorrowArr" class="time_item" ng-click="selectTime('后天',item)"><a href="javascript:void(0)">{{item}}</a></li>
+        </ul>
+
+    </div>
+</div>
+<!--底部-->
+<footer-bar total-count="totalCount" ></footer-bar>

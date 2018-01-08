@@ -1,0 +1,65 @@
+<!--首页主要有三部分组成-->
+<header-bar></header-bar>
+
+<!--content部分-->
+<div class="category_content">
+    <!--左边部分-->
+    <div class="theme-spline">
+        <ul>
+            <!--直接是对数据进行的操作-->
+            <li ng-repeat="(i,obj) in categoryArr" ng-click="showCategory(obj.id,obj,$index)"
+                ng-class='{before:i==index}'>{{obj.name}}
+            </li>
+        </ul>
+    </div>
+    <!--右边部分-->
+    <div class="list-con-info">
+        <div class="top-module">
+            <ul class="nav_bar">
+                <li>
+                    <span ng-click='categoryAll()'>全部分类<i class="fa" ng-class="all_state?'fa-angle-down':'fa-angle-up' "  ></i></span>
+                </li>
+                <li>
+                    <span ng-click='showSoft()'>综合排序<i class="fa" ng-class="soft_state?'fa-angle-down':'fa-angle-up' "></i></span>
+                </li>
+            </ul>
+            <div class="top_layer">
+                <div  ng-if="all_state">
+                    <ul class="all_category">
+                        <li ng-repeat="item in CIDArr" ng-click='filterName(item.name)'>{{item.name}}</li>
+                    </ul>
+                </div>
+                <div  ng-if="soft_state">
+                    <ul class="soft">
+                        <li ng-click="orderType('market_price')">综合排序</li>
+                        <li ng-click="orderType('store_nums')">销量最高</li>
+                        <li ng-click="orderType('market_price')">价格最低</li>
+                        <li ng-click="orderType('-market_price')">价格最高</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="list-show">
+            <ul>
+                <li ng-repeat="(i,obj) in pro_listArr|orderBy:ordertype|filter:name">
+                    <dl>
+                        <dt ng-click="checkDetial(obj)"><img  ng-src="{{obj.img}}"  /><img ng-src="{{obj.img}}" class="move_pic"  ng-class="{true:'move_cart1',false:'move_cart2'}[istrue]" /></dt>
+                        <dd>
+                            <span class="name">{{obj.name}}</span>
+                            <span class="weight">{{obj.specifics}}</span>
+                            <span class="price">￥{{obj.market_price}}</span>
+                            <span class="add"  ng-click="addCart(obj)">+</span>
+                            <span class="count" ng-show="count>0" >{{count}}</span>
+                            <span class="remove" ng-show="count>0"  ng-click="reduce(obj)">-</span>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <!--<div class="cover" ng-show='all_state' ng-hide='!soft_state'></div>-->
+    </div>
+</div>
+
+
+<!--底部-->
+<footer-bar total-count="totalCount"></footer-bar>

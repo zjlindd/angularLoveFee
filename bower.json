@@ -1,0 +1,31 @@
+{
+  "name": "angularWebApp",
+  "homepage": "https://github.com/zjlindd/angularLove",
+  "authors": [
+    "zjlindd <3190547371@qq.com>"
+  ],
+  "description": "this is a angular demo",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.7",
+    "angular-ui-router": "^1.0.11"
+  },
+  "devDependencies": {
+    "angular": "^1.6.7",
+    "angular-ui-router": "^1.0.11",
+    "oclazyload": "ocLazyLoad#^1.1.0",
+    "jquery": "^3.2.1",
+    "swiper": "^4.0.7",
+    "me-lazyload": "^0.0.5",
+    "angular-bootstrap": "^2.5.0"
+  }
+}

@@ -1,0 +1,41 @@
+<!--首页主要有三部分组成-->
+<header-bar></header-bar>
+
+<!--content部分-->
+<div class="content">
+	<!--轮播图控件-->
+	<roast-pitcure roast-arr="roastArr"></roast-pitcure>
+
+    <section>
+        <div class="modules">
+            <div class="pro_wrap" ng-repeat="obj in modulesArr.act_rows">
+                <div class="header">
+                    <span class="title">{{obj.category_detail.name}}</span>
+                    <a href="#category" class="more" ui-sref="category">更多></a>
+                </div>
+                <div class="img">
+                    <img src="{{obj.activity.img}}" />
+                </div>
+                <div class="list_info">
+                    <ul>
+                        <li ng-repeat="obj2 in obj.category_detail.goods">
+                            <div class="img" ng-click="lookDetial(obj2)">
+                                <img ng-src="{{obj2.img}}"/>
+                                <img ng-src="{{obj2.img}}" class="move_pic" ng-class="{true:'move_cart1',false:'move_cart2'}[istrue]" />
+                            </div>
+                            <div class="pro_title">{{obj2.name}}</div>
+                            <div class="priceInfo">
+                                <span class="choose">精选</span>
+                                <span class="ml">{{obj2.specifics}}</span>
+                                <span class="price">{{obj2.partner_price|currency}}</span>
+                                <span class="add_cate" ng-click="addCart(obj2)">+</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--底部-->
+<footer-bar total-count="totalCount" ></footer-bar>

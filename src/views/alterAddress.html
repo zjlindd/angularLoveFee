@@ -1,0 +1,16 @@
+<!--编辑地址或者是新增地址-->
+<header-bar title-name="titleName" save="saveArea"></header-bar>
+<div class="alter_address_page">
+    <div class="item_list">
+        <ul>
+            <li><span class="name">联系人： </span><input type="text" class="value" ng-model="areaObj.name" /></li>
+            <li><span class="name">性别：   </span><input type="text"  ng-click="areaObj.checked=true;" ng-class="areaObj.checked?'sex_class':''" ng-model="areaObj.checked" name="sex" >先生<input ng-click="areaObj.checked=false;" ng-class="!areaObj.checked?'sex_class':''" type="text" name="sex">女士</li>
+            <li><span class="name">手机号码:</span><input type="text" class="value" ng-model="areaObj.phone" /></li>
+            <li><span class="name">所在城市:</span><input type="text" class="value" ng-model="areaObj.city" /></li>
+            <li><span class="name">所在地区:</span><input type="text" class="value" ng-model="areaObj.area" /></li>
+            <li><span class="name">详细地址:</span><input type="text" class="value" ng-model="areaObj.detailArea" /></li>
+        </ul>
+    </div>
+    <p class="delete" ng-show="isNewArea" ng-click="delete(areaObj)"><span>删除地址</span></p>
+</div>
+

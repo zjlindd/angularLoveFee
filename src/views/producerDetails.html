@@ -1,0 +1,39 @@
+<!--首页主要有三部分组成-->
+<header-bar producer-name="productObj.name"></header-bar>
+<!--content部分-->
+<div class="product_detail_page">
+    <div class="pro_pic">
+        <img ng-src="{{productObj.img}}" alt="">
+        <img ng-src="{{productObj.img}}" class="move_pic"  ng-class="{true:'move_cart3',false:'move_cart4'}[istrue]" />
+    </div>
+   <div class="info">
+       <p  class="name"><span>{{productObj.name}}</span><span>{{productObj.specifics}}</span></p>
+       <p><span class="price">￥{{productObj.price}}</span></p>
+   </div>
+    <div class="details">
+        <div class="title"><span>商品详情</span></div>
+        <p><span class="name">品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牌</span><span class="value">{{productObj.brand_name}}</span></p>
+        <p><span class="name">产品规格</span><span class="value">{{productObj.specifics}}</span></p>
+        <p ng-show="productObj.safe_day>0"><span class="name">保质日期</span><span class="value">{{productObj.safe_day}}</span></p>
+    </div>
+    <div class="default_pic">
+        <img src="../images/productDetailDefault.jpg" alt="">
+    </div>
+</div>
+<div class="detail_footer">
+    <div class="clollect" ng-click="addCollection(productObj)">
+        <i class="fa fa-heart-o"></i>
+        <span>收藏</span>
+    </div>
+    <div class="add_pro">
+        <span class="text">添加商品：</span>
+        <span class="add" ng-click="addCart(productObj)">+</span>
+        <span class="count">{{count}}</span>
+        <span class="remove"  ng-click="reduce(productObj)">-</span>
+    </div>
+    <div class="cart" ng-click="goto()">
+        <span class="allCount">{{totalCount}}</span>
+        <img src="../images/cart2.png" alt="">
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+
+<header-bar member-center ></header-bar>
+
+<div class="memberCenterPage">
+    <div class="header">
+        <div class="profile"></div>
+        <p class="currentPoints">0／999</p>
+        <div class="levels">
+            <span  class="line"> </span>
+            <span  class="line line1"> </span>
+            <span  class="line line2"> </span>
+            <span  class="level level1">v0</span>
+            <span  class="level level2">v1</span>
+        </div>
+        <p>距下一等级还需 30 成长值</p>
+    </div>
+    <div class="strategies">
+        <div class="strategies-title title-legend theme-border-gray-decorate">会员攻略</div>
+        <div class="member_list">
+            <ul>
+                <li  ng-repeat="item in memberTipArr" ng-click="toggleClass(item)" ng-class="!item.isFold?'class1':''">
+                    <p class="strategy-name">{{item.title}} <i ng-show="!item.isFold" class="fa fa-angle-down"></i><i ng-show="item.isFold" class="fa fa-angle-up"></i></p>
+                    <p class="strategy-content ">{{item.content}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
