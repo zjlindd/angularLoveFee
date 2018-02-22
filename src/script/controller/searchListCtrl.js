@@ -2,7 +2,7 @@
 angular.module('app').controller('searchListCtrl', ['$http', '$scope', "$timeout",'local','productInfo','$state','$stateParams', function($http, $scope, $timeout,local,productInfo,$state,$stateParams){
     $http({
         method: 'GET',
-        url: '/data/goods.json'
+        url: 'data/goods.json'
     }).then(function successCallback(response) {
 
         $scope.listArr=response.data.data.goods;

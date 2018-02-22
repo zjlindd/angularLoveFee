@@ -56,7 +56,7 @@
                 </li>
             </ul>
         </div>
-        <!--<div class="cover" ng-show='all_state' ng-hide='!soft_state'></div>-->
+        <div class="cover" ng-show="all_state||soft_state"></div>
     </div>
 </div>
 
@@ -65,4 +65,4 @@
 
 <!--loading-->
 
-<modal-mask ng-show="!categoryArr.length" open-modal="true"></modal-mask>
+<modal-mask ng-show="!categoryArr.length||!pro_listArr.length" open-modal="true"></modal-mask>

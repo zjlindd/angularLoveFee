@@ -3,7 +3,7 @@ angular.module('app').controller('categoryCtrl', ['$http', '$scope', "$timeout",
 
     $http({
         method: 'GET',
-        url: '/data/category.json'
+        url: 'data/category.json'
     }).then(function successCallback(response) {
 
         $scope.categoryArr = response.data.data.categories;//左边分类模块
@@ -27,8 +27,11 @@ angular.module('app').controller('categoryCtrl', ['$http', '$scope', "$timeout",
             $scope.index = index;//分类模块索引
 
             $scope.CIDArr = obj.cids; //分类选项数组
+            $scope.pro_listArr=[];
+            $timeout(function () {
+                $scope.pro_listArr = $scope.product[arrId];
+            },200)
 
-            $scope.pro_listArr = $scope.product[arrId];
 
         };
         //全部分类

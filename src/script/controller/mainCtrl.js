@@ -2,7 +2,7 @@
 angular.module('app').controller('mainCtrl', ['$http', '$scope', "$timeout", 'local', 'productInfo','$state','$location', function ($http, $scope, $timeout, local, productInfo,$state,$location) {
     $http({
         method: 'GET',
-        url: '/data/home.json'
+        url: 'data/home.json'
     }).then(function successCallback(response) {
 
         /********************************页面数据初始化*******************************/

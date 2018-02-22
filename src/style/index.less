@@ -176,7 +176,7 @@
                             .add_cate {
                                 position: absolute;
                                 right: 0.1rem;
-                                top: 2.2rem;
+                                top: 2rem;
                                 width: 1.3rem;
                                 height: 1.3rem;
                                 color: #ff4300;
@@ -295,12 +295,12 @@
             right: 0;
             top: 18%;
             bottom: 3rem;
-            overflow: auto;
+            overflow: hidden;
             z-index: 10;
             ul {
+                overflow: hidden;
                 li {
                     width: 100%;
-                    padding: 0.2rem;
                     overflow: hidden;
                     background: #fff;
                     border-bottom: 1px solid #e0e0e0;
@@ -369,6 +369,16 @@
                     }
                 }
             }
+
+        }
+        .cover{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 18%;
+            bottom: 3rem;
+            z-index: 20;
+            background: #2d2b2569;
         }
     }
 }

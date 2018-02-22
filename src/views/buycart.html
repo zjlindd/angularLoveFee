@@ -31,8 +31,8 @@
                 <li ng-repeat="(i,item) in productListArr" ng-show="item.count">
                     <div class="check">
                         <span ng-click="check(i,item)">{{isCheck}}</span>
-                        <img ng-src="../images/circle.png" alt="" ng-click="check(i,item)"  ng-show="!item.isChecked">
-                        <img ng-src="../images/sure.png" alt="" ng-click="check(i,item)"    ng-show="item.isChecked">
+                        <img ng-src="images/circle.png" alt="" ng-click="check(i,item)"  ng-show="!item.isChecked">
+                        <img ng-src="images/sure.png" alt="" ng-click="check(i,item)"    ng-show="item.isChecked">
                     </div>
                     <div class="img">
                         <img ng-src="{{item.img}}" alt="">
@@ -51,8 +51,8 @@
             <div class="accounts">
                 <div class="checkAll">
                     <span ng-click="checkAll()">{{isCheckAll}}</span>
-                    <img ng-src="../images/circle.png" alt="" ng-click="checkAll(i,item)"  ng-show="!isCheckAll">
-                    <img ng-src="../images/sure.png" alt="" ng-click="checkAll(i,item)"    ng-show="isCheckAll">
+                    <img ng-src="images/circle.png" alt="" ng-click="checkAll(i,item)"  ng-show="!isCheckAll">
+                    <img ng-src="images/sure.png" alt="" ng-click="checkAll(i,item)"    ng-show="isCheckAll">
                     <i>&nbsp;全选</i>
                 </div>
                <div class="total">

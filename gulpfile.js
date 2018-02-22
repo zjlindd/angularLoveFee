@@ -28,7 +28,7 @@ gulp.task("lib",function(){
 
 //html 搬家
 gulp.task("html",function(){
-    gulp.src(app.srcPath+"/**/*.html")
+    gulp.src(app.srcPath+"**/*.html")
         .pipe(gulp.dest(app.devPath))
         .pipe(gulp.dest(app.prdPath))
         .pipe(connect.reload());

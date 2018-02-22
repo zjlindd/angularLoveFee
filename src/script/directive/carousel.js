@@ -17,8 +17,6 @@ app.directive("roastPitcure", function($timeout) {
         '</div>',
         replace: true, // 使用模板替换原始标记
         link: function(scope, element, attr, controller) {
-
-            console.log('scope',scope);
         }
     }
 });
