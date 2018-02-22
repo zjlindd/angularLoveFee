@@ -5,7 +5,7 @@ angular.module('app').controller('buyCarCtrl', ['$http', '$scope', "$timeout",'l
     $scope.totalCount=local.get("allCount");
 
     //当前收货地址获得
-     $scope.current_area=local.get("area_infoArr")[0]==undefined?{}:local.get("area_infoArr")[0];
+     // $scope.current_area=local.get("area_infoArr")[0]==undefined?{}:local.get("area_infoArr")[0];
     
     
     //获得购物车的全部商品
