@@ -2,7 +2,7 @@
 <header-bar></header-bar>
 
 <!--content部分-->
-<div class="category_content">
+<div class="category_content" ng-if="categoryArr.length>0">
     <!--左边部分-->
     <div class="theme-spline">
         <ul>
@@ -60,6 +60,9 @@
     </div>
 </div>
 
-
 <!--底部-->
 <footer-bar total-count="totalCount"></footer-bar>
+
+<!--loading-->
+
+<modal-mask ng-show="!categoryArr.length" open-modal="true"></modal-mask>

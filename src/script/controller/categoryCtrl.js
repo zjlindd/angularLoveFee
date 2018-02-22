@@ -1,5 +1,6 @@
 
 angular.module('app').controller('categoryCtrl', ['$http', '$scope', "$timeout", 'local', 'productInfo','$location','$state', function ($http, $scope, $timeout, local, productInfo,$location,$state) {
+
     $http({
         method: 'GET',
         url: '/data/category.json'
@@ -65,7 +66,6 @@ angular.module('app').controller('categoryCtrl', ['$http', '$scope', "$timeout",
             $scope.ordertype = type;
             $scope.soft_state = !$scope.soft_state
         };
-
 
         /********************************跳转到商品详情页业务代码*******************************/
 
