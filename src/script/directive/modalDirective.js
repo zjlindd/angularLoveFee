@@ -1,6 +1,6 @@
 
 //封装带遮罩的加载中弹出框
-app.directive('modalMask', function($location,$timeout) {
+angular.module('app').directive('modalMask', function() {
     return {
         restrict : 'E',
         replace : true,
@@ -27,7 +27,7 @@ app.directive('modalMask', function($location,$timeout) {
     }
 });
 //封装带遮罩的确定弹出框
-app.directive('modalOk', function($location,$timeout) {
+angular.module('app').directive('modalOk', function() {
     return {
         restrict : 'E',
         replace : true,
@@ -49,13 +49,28 @@ app.directive('modalOk', function($location,$timeout) {
         '	 </div>'+
         ' </div>',
         link : function(scope, element, attr) {
-
-            console.log(scope);
-              $timeout(function () {
-                  //scope.openModal=false;
-              },2000)
+        }
+    }
+});
+//封装消息提示框,2s后自动隐藏
+angular.module('app').directive('modalTip', function() {
+    return {
+        restrict : 'E',
+        replace : true,
+        scope : {
+            openModal:'=',
+            modalTitle:'@'
+        },
+        template :
+        ' <div class="modalMask"  ng-show="openModal">'+
+        '    <div class="mask"  >'+
+        '	 </div>'+
+        '    <div class="modal location">'+
+        '       <span class="local_text">{{modalTitle}}</span>'+
+        '	 </div>'+
+        ' </div>',
+        link : function(scope, element, attr) {
 
         }
     }
 });
-

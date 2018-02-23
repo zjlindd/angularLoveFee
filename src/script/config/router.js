@@ -56,6 +56,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
         url: '/memberCenter',
         templateUrl: 'views/memberCenterPage.html',
         controller: 'memberCenterCtrl'
+    }).state('collection', {
+        url: '/collection',
+        templateUrl: 'views/collectionPage.html',
+        controller: 'collectionCtrl'
     });
 
     $urlRouterProvider.otherwise('main');//其他

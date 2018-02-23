@@ -1,7 +1,7 @@
-app.directive('onFinishRenderFilters', function ($timeout) {
+angular.module('app').directive('onFinishRenderFilters', function ($timeout) {
     return {
         restrict: 'A',
-        link: function(scope, element, attr) {
+        link: function(scope) {
             if (scope.$last === true) {
                 $timeout(function() {
                     scope.$emit('ngRepeatFinished');
@@ -10,7 +10,7 @@ app.directive('onFinishRenderFilters', function ($timeout) {
         }
     };
 });
-app.directive('footerBar', function($location,$timeout) {
+angular.module('app').directive('footerBar', function($location) {
     return {
         restrict : 'E',
         replace : true,
@@ -21,19 +21,19 @@ app.directive('footerBar', function($location,$timeout) {
         ' <div class="menu">'+
 			'	<ul class="menu_list" >'+
 					'<li ng-repeat="(i,item) in menuList"  on-finish-render-filters   ng-click="menuClick($index,item)">'+
-						'<a href="" ur-sref="item.url">'+
+						'<a href="javascript:void(0)" ui-sref="item.url">'+
 							'<span class="icon"></span>'+
-						   ' <span class="txt" ur-sref="category" >{{item.text}}</span>'+
+						   ' <span class="txt" ui-sref="category" >{{item.text}}</span>'+
 						   ' <span ng-if="item.url==\'cart\'&&totalCount>0" class="shop_count">{{totalCount}}</span>'+
 						'</a>'+
 					'</li>'+
 				'</ul>'+
 		'	</div>',
-        link : function(scope, element, attr) {
+        link : function(scope, element) {
 
-            var str=$location.path().substring(1);//字符串截取
+            let str=$location.path().substring(1);//字符串截取
 
-            scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+            scope.$on('ngRepeatFinished', function () {
                 //下面是在dom render完成后执行的js
                 if(str){
                     test(str);
@@ -56,7 +56,7 @@ app.directive('footerBar', function($location,$timeout) {
                     default:
                         break;
                 }
-            };
+            }
             scope.menuList=[
                 {
                     "text":"首页",
@@ -78,7 +78,7 @@ app.directive('footerBar', function($location,$timeout) {
                     "className":"classLi4",
                     "url":'mine'
                 },
-            ]
+            ];
 
             scope.menuClick=function(index,item){
 

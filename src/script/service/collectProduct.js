@@ -10,8 +10,8 @@ angular.module('app').factory('collection', ['local', function(local){
 
         var  collectionArr=local.get("collectionArr")?local.get("collectionArr"):[];//用来存放商品
 
-        var isHaveCollect=isHaveCollect(proObj)
-        if(!isHaveCollect.state){
+        var collectState=isHaveCollect(proObj)
+        if(!collectState.state){
             collectionArr.push(proObj);
         }else {
             collectionArr.splice(isHaveCollect.index,1)
@@ -20,7 +20,7 @@ angular.module('app').factory('collection', ['local', function(local){
     };
     // 判断商品是否已经收藏
     function isHaveCollect(item){
-        var collectionArr=local.get("collectionArr");
+        var collectionArr=local.get("collectionArr")?local.get("collectionArr"):[];
       for(var i=0,len=collectionArr.length;i<len;i++){
           if(item.id===collectionArr[i].id){
               return {'state':true,index:i};

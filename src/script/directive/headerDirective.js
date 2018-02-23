@@ -1,4 +1,4 @@
-app.directive("headerBar", function () {
+angular.module('app').directive("headerBar", function () {
     return {
         restrict: "E",
         scope: {
@@ -7,7 +7,8 @@ app.directive("headerBar", function () {
             titleName:'=',
             save: "=" ,
             doSearch: "=" ,// 保存操作
-            keyUp:"="
+            keyUp:"=",
+            edit:'=' // 编辑完成
         },
         template: function (el, attr) {
             var temp = '';
@@ -54,6 +55,14 @@ app.directive("headerBar", function () {
                     '<a href="javascript:void(0)" ui-sref="main" class="return"></a>' +
                     ' <input  name=""  value="" placeholder="请输入商品名称" ng-keyup="keyUp($event,search_text)" ng-model="search_text" />' +
                     '<a href=" " ui-sref="search" class="search-btn" ng-click="doSearch(search_text)"></a>'+
+                    '</h3>' +
+                    '</header>'
+            }else if (angular.isDefined(attr.collectionHeader)) {
+                temp = "<header>" +
+                    '<h3 class="collection">' +
+                    '<a href="javascript:void(0)" ui-sref="mine" class="return"></a>' +
+                    '<span class="name">商品收藏</span>' +
+                    '<a href="javascript:void(0)" class="edit" ng-click="edit()">编辑</a>'+
                     '</h3>' +
                     '</header>'
             }

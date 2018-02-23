@@ -1,0 +1,37 @@
+
+<header-bar  collection-header edit="edit" ></header-bar>
+<!--content部分-->
+<div class="collection_content">
+        <div class="collection_pro_list">
+            <ul class="list_item">
+                <li ng-repeat="(i,item) in collectionListArr">
+                    <div class="check" ng-show="false">
+                        <span ng-click="check(i,item)">{{isCheck}}</span>
+                        <img ng-src="images/circle.png" alt="" ng-click="check(i,item)"  ng-show="!item.isChecked">
+                        <img ng-src="images/sure.png" alt="" ng-click="check(i,item)"    ng-show="item.isChecked">
+                    </div>
+                    <div class="img">
+                        <img ng-src="{{item.img}}" alt="">
+                    </div>
+                    <div class="pro_info">
+                        <p class="name"><span>{{item.name}}</span></p>
+                        <p class="action">
+                            <span class="price">￥{{item.price}}</span>
+                        </p>
+                        <p class="specifics">
+                           <span>{{item.specifics}}</span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <div class="accounts" ng-show="false">
+                <div class="checkAll">
+                    <span ng-click="checkAll()">{{isCheckAll}}</span>
+                    <img ng-src="images/circle.png" alt="" ng-click="checkAll(i,item)"  ng-show="!isCheckAll">
+                    <img ng-src="images/sure.png" alt="" ng-click="checkAll(i,item)"    ng-show="isCheckAll">
+                    <i>&nbsp;全选</i>
+                </div>
+            </div>
+        </div>
+</div>
+<modal-tip modal-title="sorry,此功能正在完善中···" open-modal="openModal" ></modal-tip>

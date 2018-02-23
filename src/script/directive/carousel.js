@@ -1,5 +1,5 @@
 //angular 自定义组件
-app.directive("roastPitcure", function($timeout) {
+angular.module('app').directive("roastPitcure", function() {
     return {
         restrict: "E", // 指令是一个元素 (并非属性)
         scope: {

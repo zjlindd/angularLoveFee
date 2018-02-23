@@ -59,7 +59,7 @@
                    <span>&nbsp;共:<i class="allMoney">￥{{all_money}}</i></span>
                </div>
                 <div class="finish">
-                    <span ng-show="isOk" class="ok">选好啦</span>
+                    <span ng-show="isOk" class="ok" ng-click="payFor()">选好啦</span>
                     <span ng-show="!isOk" class="zero">满0元起送</span>
                 </div>
             </div>
@@ -82,6 +82,7 @@
         </ul>
 
     </div>
+    <modal-tip modal-title="小主这么快就选好了^_^,再看看其它商品吧!" open-modal="openModal" ></modal-tip>
 </div>
 <!--底部-->
 <footer-bar total-count="totalCount" ></footer-bar>

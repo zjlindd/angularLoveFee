@@ -12,4 +12,9 @@ angular.module('app').controller('mineCtrl', ['$http', '$scope','$state', "$time
     $scope.goto=function(){
         $state.go("memberCenter");
     };
+
+    $scope.check_collection=function () {
+        $state.go("collection");
+
+    }
 }]);

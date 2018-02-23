@@ -859,7 +859,7 @@ header .search input {
 .category_content .list-con-info .list-show ul li {
   width: 100%;
   padding: 0.2rem;
-  overflow: hidden;
+  box-sizing: border-box;
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
 }
