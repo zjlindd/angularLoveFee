@@ -35,7 +35,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
         controller: 'searchListCtrl'
     }).state('producer', {
         url: '/producer/:producerId',
-        params:{"producerId":null,router:''},
+        params:{"producerId":null,router:'',backRouter:""},
         templateUrl: 'views/producerDetails.html',
         controller: 'producerDetailsCtrl'
     }).state('order', {

@@ -1,5 +1,5 @@
 <!--首页主要有三部分组成-->
-<header-bar producer-name="productObj.name"></header-bar>
+<header-bar producer-name="productObj.name" back-url="backUrl"></header-bar>
 <!--content部分-->
 <div class="product_detail_page">
     <div class="pro_pic">
@@ -20,15 +20,15 @@
         <img src="images/productDetailDefault.jpg" alt="">
     </div>
 </div>
-<div class="detail_footer">
-    <div class="clollect" ng-click="addCollection(productObj)">
-        <i class="fa fa-heart-o"></i>
+<div class="detail_footer" ng-init="collectState=false">
+    <div class="clollect" ng-click="addCollection(productObj);collectState=!collectState">
+        <i class="fa" ng-class="collectState?'fa-heart':'fa-heart-o'"></i>
         <span>收藏</span>
     </div>
     <div class="add_pro">
         <span class="text">添加商品：</span>
         <span class="add" ng-click="addCart(productObj)">+</span>
-        <span class="count">{{count}}</span>
+        <span class="count">{{count?count:currentCount}}</span>
         <span class="remove"  ng-click="reduce(productObj)">-</span>
     </div>
     <div class="cart" ng-click="goto()">

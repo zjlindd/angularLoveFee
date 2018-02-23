@@ -198,6 +198,7 @@
 .category_content {
     width: 100%;
     height: 100%;
+    overflow: hidden;
     .theme-spline {
         float: left;
         width: 3.8rem;
@@ -295,7 +296,8 @@
             right: 0;
             top: 18%;
             bottom: 3rem;
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
             z-index: 10;
             ul {
                 overflow: hidden;
@@ -626,10 +628,12 @@
                                 right: 0.4rem;
                             }
                             .count {
-                                position: absolute;
-                                bottom: .4rem;
-                                right: 2.2rem;
-                                color: #ff4300;
+                              position: absolute;
+                              bottom: .4rem;
+                              right: 2.05rem;
+                              color: #ff4300;
+                              text-align: center;
+                              width: 10%;
                             }
                             .remove {
                                 right: 3rem;
@@ -1024,9 +1028,9 @@
                 .img {
                     position: relative;
                     width: 100%;
+                    font-size: 0;
                     img {
                         position: relative;
-                        top: 1px;
                         width: 100%;
                         height: 100%;
                     }

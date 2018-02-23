@@ -17,14 +17,13 @@ app.directive("headerBar", function () {
                     '</header>'
             } else if (angular.isDefined(attr.producerName)) {
                 temp = "<header>" +
-                    '<h3 class="producer"><a href="javascript:void(0)" ui-sref="category" class="return"></a></span><span class="name" >{{producerName}}</span></h3>' +
+                    '<h3 class="producer"><a href="javascript:void(0)" ui-sref="{{backUrl}}" class="return"></a></span><span class="name" >{{producerName}}</span></h3>' +
                     '</header>'
             } else if (angular.isDefined(attr.order)) {
                 temp = "<header>" +
                     '<h3 class="order">' +
                     '<a href="javascript:void(0)" ui-sref="mine" class="return"></a>' +
-                    '<span class="name">我的订单</span>' +
-                    '<a href="javascript:void(0)"  ui-sref="order"   class="refresh"></a>' +
+                    '<span class="name">我的订单</span>'+
                     '</h3>' +
                     '</header>'
             }else if (angular.isDefined(attr.address)) {

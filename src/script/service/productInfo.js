@@ -109,6 +109,6 @@ angular.module('app').factory('productInfo', ['local', function(local){
 
         local.put("pro_infoArr",pro_infoArr);//更新数据
 
-    }
+    };
          return service;
 }]);

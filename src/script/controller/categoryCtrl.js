@@ -74,15 +74,14 @@ angular.module('app').controller('categoryCtrl', ['$http', '$scope', "$timeout",
 
         $scope.checkDetial=function(item){
 
-            console.log(item);
             //存入当前要要查看的商品
             local.put("detailPro",item);
 
-            var router=$location.path().substring(1);
+             var router=$location.path().substring(1);
 
              var str = item.id;
 
-            $state.go('producer', {"producerId": str,"router":router});
+            $state.go('producer', {"producerId": str,"router":router,"backRouter":"category"});
         };
         /********************************addCart业务代码*******************************/
         $scope.addCart = function (obj) {

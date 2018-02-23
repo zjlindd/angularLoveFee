@@ -1,5 +1,6 @@
 'use strict';
-angular.module('app').controller('mainCtrl', ['$http', '$scope', "$timeout", 'local', 'productInfo','$state','$location', function ($http, $scope, $timeout, local, productInfo,$state,$location) {
+angular.module('app').controller('mainCtrl', ['$http', '$scope', "$timeout", 'local', 'productInfo','location','$state','$location', function ($http, $scope, $timeout, local, productInfo,location,$state,$location) {
+
     $http({
         method: 'GET',
         url: 'data/home.json'
@@ -30,13 +31,15 @@ angular.module('app').controller('mainCtrl', ['$http', '$scope', "$timeout", 'lo
 
         /********************************跳转到商品详情页业务代码 *******************************/
 
-        $scope.lookDetial = function (obj) {
+        $scope.lookDetial = function (item) {
+           //存入当前要要查看的商品
+            local.put("detailPro",item);
 
             var router=$location.path().substring(1);
 
-            var str = JSON.stringify(obj);
+            var str = item.id;
 
-            $state.go('producer', {"producerId": str,"router":router});
+            $state.go('producer', {"producerId": str,"router":router,"backRouter":'main'});
         };
 
         /********************************addCart业务代码**************************************/

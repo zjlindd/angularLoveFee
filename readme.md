@@ -9,8 +9,6 @@ npm install
 gulp server
 
 
-
-
 1、angular+gulp+less+bower
 
 2、angular路由部分用：ui-router
@@ -193,7 +191,11 @@ cookie是由浏览器来接受处理的,cookie只是在客户端存东西。
 
 47、优化loading效果
 
+48、解决build后轮播图失效问题-版本问题
 
+49、商品收藏,页面开发
+
+50、收货人地址数据完善
 
 
 
