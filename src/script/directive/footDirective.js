@@ -1,4 +1,4 @@
-angular.module('app').directive('onFinishRenderFilters', function ($timeout) {
+angular.module('app').directive('onFinishRenderFilters',['$timeout',function ($timeout) {
     return {
         restrict: 'A',
         link: function(scope) {
@@ -9,36 +9,29 @@ angular.module('app').directive('onFinishRenderFilters', function ($timeout) {
             }
         }
     };
-});
-angular.module('app').directive('footerBar', function($location) {
+}]);
+angular.module('app').directive('footerBar',['$location',function($location) {
     return {
         restrict : 'E',
         replace : true,
         scope : {
-          totalCount:"=",
+            totalCount:"=",
         },
         template :
         ' <div class="menu">'+
-			'	<ul class="menu_list" >'+
-					'<li ng-repeat="(i,item) in menuList"  on-finish-render-filters   ng-click="menuClick($index,item)">'+
-						'<a href="javascript:void(0)" ui-sref="item.url">'+
-							'<span class="icon"></span>'+
-						   ' <span class="txt" ui-sref="category" >{{item.text}}</span>'+
-						   ' <span ng-if="item.url==\'cart\'&&totalCount>0" class="shop_count">{{totalCount}}</span>'+
-						'</a>'+
-					'</li>'+
-				'</ul>'+
-		'	</div>',
+        '	<ul class="menu_list" >'+
+        '<li ng-repeat="(i,item) in menuList"  on-finish-render-filters   ng-click="menuClick($index,item)">'+
+        '<a href="javascript:void(0)" ui-sref="item.url">'+
+        '<span class="icon"></span>'+
+        ' <span class="txt" ui-sref="category" >{{item.text}}</span>'+
+        ' <span ng-if="item.url==\'cart\'&&totalCount>0" class="shop_count">{{totalCount}}</span>'+
+        '</a>'+
+        '</li>'+
+        '</ul>'+
+        '	</div>',
         link : function(scope, element) {
 
-            let str=$location.path().substring(1);//字符串截取
-
-            scope.$on('ngRepeatFinished', function () {
-                //下面是在dom render完成后执行的js
-                if(str){
-                    test(str);
-                }
-            });
+            var Str = $location.path().substring(1);//字符串截取
             function test(str) {
                 switch (true) {
                     case /main/.test(str):
@@ -57,6 +50,12 @@ angular.module('app').directive('footerBar', function($location) {
                         break;
                 }
             }
+            scope.$on('ngRepeatFinished', function () {
+                //下面是在dom render完成后执行的js
+                if(Str){
+                    test(Str);
+                }
+            });
             scope.menuList=[
                 {
                     "text":"首页",
@@ -81,9 +80,8 @@ angular.module('app').directive('footerBar', function($location) {
             ];
 
             scope.menuClick=function(index,item){
-
                 $location.path(item.url);
             };
         }
     }
-});
+}]);

@@ -1,18 +1,19 @@
 //开始gulp使用
-let gulp=require("gulp");
-let less = require('gulp-less');
-let autoPreFixer=require('gulp-autoprefixer');
-let cssMin=require('gulp-cssmin');
-let plumber=require("gulp-plumber");
-let concat=require("gulp-concat");
-let uglify=require("gulp-uglify");
-let imagemin=require("gulp-imagemin");
-let clean=require("gulp-clean");
-let open=require("open");
-let connect=require("gulp-connect");
+var gulp=require("gulp");
+var $=require("gulp-load-plugins");
+var less = require('gulp-less');
+var autoPreFixer=require('gulp-autoprefixer');
+var cssMin=require('gulp-cssmin');
+var plumber=require("gulp-plumber");
+var concat=require("gulp-concat");
+var uglify=require("gulp-uglify");
+var imagemin=require("gulp-imagemin");
+var clean=require("gulp-clean");
+var open=require("open");
+var connect=require("gulp-connect");
 
 //定义目录路径
-let app={
+var app={
     "srcPath":"src/",
     "devPath":"build/",
     "prdPath":"dist/",
